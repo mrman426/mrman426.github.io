@@ -53,7 +53,7 @@
 <body>
     <!-- YouTube Video -->
     <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/rqJDO3TWnac?autoplay=1&loop=1&controls=0&showinfo=0&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe id="background-video" width="560" height="315" src="https://www.youtube.com/embed/rqJDO3TWnac?autoplay=1&loop=1&controls=0&showinfo=0&rel=0&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 
     <header>
@@ -69,30 +69,37 @@
         <section>
             <h2>cool vids</h2>
             <ol>
-                <li><a href="https://www.youtube.com/shorts/_9KPU-WnaUI">minecraft</a></li>
-                <li><a href="https://www.youtube.com/watch?v=ttbH8cBkoqk&t=1s">among us</a></li>
-                <li><a href="https://www.youtube.com/watch?v=_sg4xhU0KbA">mistplay gives money</a></li>
-                <li><a href="https://www.youtube.com/watch?v=bzkZsuv7JYg">morse code maker</a></li>
-                <li><a href="https://www.youtube.com/shorts/DUpBgZmFZA8">my lizard eating</a></li>
-                <li><a href="https://www.youtube.com/shorts/qXFdslDoXCM">my most popular vid</a></li>
-                <li><a href="https://www.youtube.com/shorts/1kDPqPWx9Jc">funne</a></li>
+                <li><a href="https://www.youtube.com/shorts/_9KPU-WnaUI" onclick="stopBackgroundVideo()">minecraft</a></li>
+                <li><a href="https://www.youtube.com/watch?v=ttbH8cBkoqk&t=1s" onclick="stopBackgroundVideo()">among us</a></li>
+                <li><a href="https://www.youtube.com/watch?v=_sg4xhU0KbA" onclick="stopBackgroundVideo()">mistplay gives money</a></li>
+                <li><a href="https://www.youtube.com/watch?v=bzkZsuv7JYg" onclick="stopBackgroundVideo()">morse code maker</a></li>
+                <li><a href="https://www.youtube.com/shorts/DUpBgZmFZA8" onclick="stopBackgroundVideo()">my lizard eating</a></li>
+                <li><a href="https://www.youtube.com/shorts/qXFdslDoXCM" onclick="stopBackgroundVideo()">my most popular vid</a></li>
+                <li><a href="https://www.youtube.com/shorts/1kDPqPWx9Jc" onclick="stopBackgroundVideo()">funne</a></li>
             </ol>
         </section>
         <h2>related</h2>
         <ol>
-            <li><a href="https://mrhermitcrab.github.io">mrcrabs home</a></li>
-            <li><a href="https://violetjuniper.github.io">violet juniper</a></li>
+            <li><a href="https://mrhermitcrab.github.io" onclick="stopBackgroundVideo()">mrcrabs home</a></li>
+            <li><a href="https://violetjuniper.github.io" onclick="stopBackgroundVideo()">violet juniper</a></li>
         </ol>
         <h2>my lizard chilli</h2>
         <ol>
-            <li><a href="https://www.youtube.com/watch?v=SeJeZKIsW5w">3d scan of my lizard</a></li>
-            <li><a href="https://www.youtube.com/watch?v=YzVG0DQYGkc&t=2s">angry lizard</a></li>
-            <li><a href="https://www.youtube.com/shorts/9g4UAeHEfOU">lizard</a></li>
+            <li><a href="https://www.youtube.com/watch?v=SeJeZKIsW5w" onclick="stopBackgroundVideo()">3d scan of my lizard</a></li>
+            <li><a href="https://www.youtube.com/watch?v=YzVG0DQYGkc&t=2s" onclick="stopBackgroundVideo()">angry lizard</a></li>
+            <li><a href="https://www.youtube.com/shorts/9g4UAeHEfOU" onclick="stopBackgroundVideo()">lizard</a></li>
         </ol>
     </main>
 
     <footer>
         <p>&copy; 2024 pumpkindread321. All rights reserved.</p>
     </footer>
+
+    <script>
+        function stopBackgroundVideo() {
+            var backgroundVideo = document.getElementById("background-video");
+            backgroundVideo.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*');
+        }
+    </script>
 </body>
 </html>
