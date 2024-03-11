@@ -110,13 +110,15 @@
     <script>
         function updateVisitCount() {
             if (typeof(Storage) !== "undefined") {
-                if (!localStorage.visitCount) {
-                    // Check if the cookie exists
-                    if (!getCookie("visited")) {
+                // Check if the cookie exists
+                if (!getCookie("visited")) {
+                    if (localStorage.visitCount) {
+                        localStorage.visitCount = Number(localStorage.visitCount) + 1;
+                    } else {
                         localStorage.visitCount = 1;
-                        // Set a cookie to prevent further counting
-                        setCookie("visited", "true", 365);
                     }
+                    // Set a cookie to prevent further counting
+                    setCookie("visited", "true", 365);
                 }
                 document.getElementById("visitCount").textContent = localStorage.visitCount;
             } else {
